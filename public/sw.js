@@ -4,7 +4,7 @@ var CACHE_NAME = 'quiz-app-cache-v1';
 var urlsToCache = [
   '/static/js/2.1a6a8bbd.chunk.js',
   '/static/css/main.d4ba1882.chunk.css',
-  'static/js/main.973440a5.chunk.js',
+  '/static/js/main.28cbe9bc.chunk.js',
   '/offline.html',
   "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple",
   "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple",
