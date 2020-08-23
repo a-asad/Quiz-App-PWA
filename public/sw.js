@@ -2,6 +2,7 @@
 var CACHE_NAME = 'quiz-app-cache-v1';
 
 var urlsToCache = [
+  '/',
   'static/css/main.71772704.chunk.css',
   '/static/js/2.1a6a8bbd.chunk.js',
   'static/js/main.973440a5.chunk.js',
