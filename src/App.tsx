@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import QuestionCard from './QuestionCard';
+import firebase from './firebase';
 
 type Question={
   category:string;
@@ -12,6 +13,10 @@ type Question={
 }
 
 function App() {
+  const messaging=firebase.messaging();
+  messaging.requestPermission().then(()=>{
+    return messaging.getToken()
+  }).catch((err)=>{console.log('Error',err)})
   function shuffle(ans:string[])
   {
     return ans.sort();
