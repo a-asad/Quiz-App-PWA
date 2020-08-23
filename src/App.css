@@ -1,38 +1,103 @@
-.App {
+.questionCard{
+  margin: auto;
+  margin-top: 10px;
+  width: fit-content;
+  padding: 2%;
+  border-radius: 10px;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: rgba(240,240,240,0.2);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+body{
+  background-color: #555;
+  background: url('./bg.jpg');
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.app{
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.score{
+  background-color: #c2d9ff;
+  padding: 10px;
+  margin-top: 10px;
+  margin:auto;
+  width: fit-content;
+  border-radius: 5px;
+}
+
+.topTitle{
+  font-family: 'Permanent Marker', cursive;
+  font-size: 50px;
+  color: white;
+}
+
+.formElement{
+  width: 100%;
+  outline: none;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  margin: 5px 0px 5px 0px;
+}
+
+input[type=number]{
+  width: 285px;
+}
+
+.optionsBox{
+  margin: auto;
+  margin-top: 10px;
+  width: 300px;
+  background-color: rgba(240,240,240,0.2);
+  border-radius: 10px;
+  text-align: left;
+  background-color: rgba(240,240,240,0.2);
+  color: white;
+  padding: 2%;
+}
+
+.btn{
+  background-color: #00ebc3;
+  padding: 12px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  outline: none;
+}
+
+.scoreCard{
+  margin: auto;
+  margin-top: 10px;
+  width: fit-content;
+  padding: 5px 40px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: rgba(240,240,240,0.2);
+  color: white;
+}
+
+.questionCard button{
+  width: 100%;
+  margin-bottom: 5px;
+  background-color: #bd5b00;
+  border: none;
+  color: white;
+  padding: 10px;
+  outline: none;
+  border-radius: 5px;
+}
+
+.trueAns{
+  background-color: #207000 !important;
+}
+
+.falseAns{
+  background-color: #d10000 !important;
 }
