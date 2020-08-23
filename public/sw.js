@@ -2,11 +2,9 @@
 var CACHE_NAME = 'quiz-app-cache-v1';
 
 var urlsToCache = [
-  '/sockjs-node',
-  '/static/js/bundle.js',
-  '/static/js/1.chunk.js',
-  '/static/js/main.chunk.js',
-  '/main.7a56764f38e1892a402f.hot-update.js',
+  'static/css/main.71772704.chunk.css',
+  '/static/js/2.1a6a8bbd.chunk.js',
+  'static/js/main.973440a5.chunk.js',
   '/offline.html',
   "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple",
   "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple",
