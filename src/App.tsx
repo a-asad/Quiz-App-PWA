@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import QuestionCard from './QuestionCard';
 import firebase from './firebase';
@@ -13,10 +13,14 @@ type Question={
 }
 
 function App() {
+
+useEffect(()=>{
   const messaging=firebase.messaging();
   messaging.requestPermission().then(()=>{
     return messaging.getToken()
-  }).catch((err)=>{console.log('Error',err)})
+  }).catch((err)=>{console.log('Error',err)});
+},[])
+
   function shuffle(ans:string[])
   {
     return ans.sort();
@@ -86,14 +90,14 @@ function App() {
       {start?<div className='score'>Score: {score}</div>:null}
       {!start && !isContinued?<div className='optionsBox'>
         <div>
-          <div>Difficulty:</div>
-          <select className='formElement' defaultValue={difficulty} onChange={setdifficulty}>
+          <label htmlFor="diff">Difficulty:</label>
+          <select id='diff' className='formElement' defaultValue={difficulty} onChange={setdifficulty}>
             <option value='easy'>Easy</option>
             <option value='medium'>Medium</option>
             <option value='hard'>Hard</option>
           </select>
-          <div>Category:</div>
-          <select className='formElement' defaultValue={category} onChange={setcategory}>
+          <label htmlFor="categ">Category:</label>
+          <select id='categ' className='formElement' defaultValue={category} onChange={setcategory}>
             <option value="9">General Knowledge</option>
             <option value="11">Entertainment: Film</option>
             <option value="18">Science: Computers</option>
