@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import QuestionCard from './QuestionCard';
-import firebase from './firebase';
-
+import firebase from 'firebase/app';
+import 'firebase/messaging';
 type Question={
   category:string;
   type:string;
@@ -15,6 +15,15 @@ type Question={
 function App() {
 
 useEffect(()=>{
+  firebase.initializeApp({
+    apiKey: "AIzaSyAu3g4IMdOm_VA4G3zw5JUxHJV-DYH6ARM",
+    authDomain: "quiz-app-pwa.firebaseapp.com",
+    databaseURL: "https://quiz-app-pwa.firebaseio.com",
+    projectId: "quiz-app-pwa",
+    storageBucket: "quiz-app-pwa.appspot.com",
+    messagingSenderId: "560667580159",
+    appId: "1:560667580159:web:bd30c7d433b1dadb9cdeca"
+})
   const messaging=firebase.messaging();
   messaging.requestPermission().then(()=>{
     return messaging.getToken()

@@ -33,32 +33,37 @@ self.addEventListener('install', function(event) {
 });
 
 const options = {
-  ignoreSearch: true,
-  ignoreMethod: true,
-  ignoreVary: true
+  ignoreVary: true,
 };
 
   self.addEventListener('fetch', function(event) {
-    event.respondWith(
-      caches.match(event.request,options)
-        .then(function(response) {
-          if (response) {
-            return response;
-          }
-  
-          return fetch(event.request).then(
-            function(response) {
-              if(!response || response.status !== 200 || response.type !== 'basic') {
-                return response;
-              }
-              var responseToCache = response.clone();
-              caches.open(CACHE_NAME)
-                .then(function(cache) {
-                  cache.put(event.request, responseToCache);
-                });
+      event.respondWith(
+        caches.match(event.request,options)
+          .then(function(response) {
+            if (response) {
               return response;
             }
-          ).catch(()=>caches.match('/offline.html'));
-        })
-      );
+            return fetch(event.request).then(
+              function(response) {
+                if(!response || response.status !== 200 || response.type !== 'basic') {
+                  return response;
+                }
+                var responseToCache = response.clone();
+                caches.open(CACHE_NAME)
+                  .then(function(cache) {
+                    cache.put(event.request, responseToCache);
+                  });
+                return response;
+              }
+            ).catch(()=>caches.match('/offline.html'));
+          })
+        );
+
+        event.waitUntil(
+          fetch(event.request).then(
+          function(response){
+            caches.open(CACHE_NAME).then(cache => cache.put(event.request, response.clone())
+            .then(() => response))
+          })
+      )
   });
